@@ -17,31 +17,65 @@ public class User {
 	@Column(name = "user_id") //usually I'll just call a field what I want it to be called instead of doing this...
 	private int id;
 	
-	@Column(unique = true)
+	@Column(unique = true,nullable=false)
 	private String username;
 	
 	private String password;
 	
-	@Column(unique = true)
+	@Column(unique = true,nullable=false)
 	private String email;
-	
+	private String firstname;
+	private String lastname;
+	private String address;
 	public User() {
 		super();
 	}
 
-	public User(String username, String password, String email) {
-		super();
-		this.username = username;
-		this.password = password;
-		this.email = email;
-	}
-
-	public User(int id, String username, String password, String email) {
+	public User(int id, String username, String password, String email, String firstname, String lastname,
+			String address) {
 		super();
 		this.id = id;
 		this.username = username;
 		this.password = password;
 		this.email = email;
+		this.firstname = firstname;
+		this.lastname = lastname;
+		this.address = address;
+	}
+
+	public String getFirstname() {
+		return firstname;
+	}
+
+	public void setFirstname(String firstname) {
+		this.firstname = firstname;
+	}
+
+	public String getLastname() {
+		return lastname;
+	}
+
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public User(String username, String password, String email, String firstname, String lastname,
+			String address) {
+		super();
+		this.username = username;
+		this.password = password;
+		this.email = email;
+		this.firstname = firstname;
+		this.lastname = lastname;
+		this.address = address;
 	}
 
 	public int getId() {

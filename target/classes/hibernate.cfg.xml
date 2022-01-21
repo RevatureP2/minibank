@@ -9,12 +9,12 @@
 
      <!-- JDBC -->
         <property name="hibernate.connection.username">postgres</property>
-        <property name="hibernate.connection.password">V3rn@cua</property>
-        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/postgres?currentSchema=p2db</property>
+        <property name="hibernate.connection.password">password</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://34.132.59.49:5432/postgres?currentSchema=p2db</property>
         <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
         <!-- Hibernate Properties -->
         <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
-        <property name="hibernate.default_schema">hibernate</property> <!-- This should be the name of your schema -->
+        <property name="hibernate.default_schema">p2db</property> <!-- This should be the name of your schema -->
         <!-- Hibernate console output -->
         <property name="hibernate.show_sql">true</property>
         <property name="hibernate.format_sql">true</property>
@@ -22,7 +22,7 @@
         <property name="hibernate.hbm2ddl.auto">create</property>
         <!-- Anyone remember what setting our hbm2ddl.auto to create will do? -->
 		<!-- It will wipe all tables and data, and recreate it -->
-
+		<mapping class="com.revature.models.User"/>
         <!-- We HAVE TO map our classes here in order for them to get picked up by Hibernate-->
      
         
