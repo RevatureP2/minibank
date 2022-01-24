@@ -23,6 +23,8 @@
         <!-- Anyone remember what setting our hbm2ddl.auto to create will do? -->
 		<!-- It will wipe all tables and data, and recreate it -->
 		<mapping class="com.revature.models.User"/>
+		<mapping class="com.revature.models.Account"/>
+		<mapping class="com.revature.models.Trans"/>
         <!-- We HAVE TO map our classes here in order for them to get picked up by Hibernate-->
      
         
