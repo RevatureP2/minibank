@@ -32,12 +32,29 @@ public class Launcher {
 			aDAO.insertAccount(a2);
 			aDAO.insertAccount(a3);
 			aDAO.insertAccount(a4);
-			List<Account> allAccount = aDAO.getAllAccount();
-			Trans t1 = new Trans(-200,null,a2);
+			
+			Trans t1 = new Trans(500,a1,a2);
 			tDAO.insertTrans(t1);
+			Trans t2 = new Trans(-450,a1,a2);
+			tDAO.insertTrans(t2);
+			Trans t3 = new Trans(-100,a1,a2);
+			tDAO.insertTrans(t3);
+			Trans t4 = new Trans(200,a1,a2);
+			tDAO.insertTrans(t4);
+//			t1.getSender().setBalance(t1.getSender().getBalance()-t1.getTrans_amount());
+//			aDAO.updateaftertrans(t1.getSender());
+//			t1.getReceiver().setBalance(t1.getReceiver().getBalance()+t1.getTrans_amount());
+//			aDAO.updateaftertrans(t1.getReceiver());
+			List<Account> allAccount = aDAO.getAllAccount();
 			for(Account a : allAccount) {
 				System.out.println(a);
 			}
+			List<Trans> allTrans = tDAO.getAllTrans();
+			for(Trans t : allTrans) {
+				System.out.println(t);
+			}
+			System.out.println(tDAO.getincomebyaccountid(1));
+			System.out.println(tDAO.getexpensebyaccountid(1));
 		} catch (HibernateException e) {
 			System.out.println("Connection Failed!");
 			e.printStackTrace();

@@ -1,7 +1,10 @@
 package com.revature.repositories;
 import java.util.List;
 
+import javax.persistence.Query;
+
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 import com.revature.models.Account;
 
@@ -24,4 +27,13 @@ public class AccountDAO {
 		ses.save(acc);
 		HibernateUtil.closeSession();
 	}
+//	public void updateaftertrans(Account a) {
+//		Session ses = HibernateUtil.getSession();
+//		
+//		Transaction tran = ses.beginTransaction();
+//		ses.merge(a);
+//		tran.commit();
+//		HibernateUtil.closeSession();
+//	} 
+
 }
