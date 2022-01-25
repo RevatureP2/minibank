@@ -1,5 +1,7 @@
 package com.revature.models;
 
+import java.sql.Date;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -19,33 +21,52 @@ public class Trans {
 	@Column(name="trans_id")
 	private int id;
 	private double trans_amount;
+	private java.sql.Date transdate;
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "sender_id_fk",referencedColumnName="account_id")
 	public Account sender;
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "receiver_id_fk",referencedColumnName="account_id")
 	public Account receiver;
+	
+	public Trans(double trans_amount, Date transdate, Account sender, Account receiver) {
+		super();
+		this.trans_amount = trans_amount;
+		this.transdate = transdate;
+		this.sender = sender;
+		this.receiver = receiver;
+	}
+	public Trans(int id, double trans_amount, Date transdate, Account sender, Account receiver) {
+		super();
+		this.id = id;
+		this.trans_amount = trans_amount;
+		this.transdate = transdate;
+		this.sender = sender;
+		this.receiver = receiver;
+	}
 	public Trans() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Trans(int id, double trans_amount, Account sender, Account receiver) {
-		super();
-		this.id = id;
-		this.trans_amount = trans_amount;
-		this.sender = sender;
-		this.receiver = receiver;
+//	public Trans(int id, double trans_amount, Account sender, Account receiver) {
+//		super();
+//		this.id = id;
+//		this.trans_amount = trans_amount;
+//		this.sender = sender;
+//		this.receiver = receiver;
+//	}
+//	public Trans(double trans_amount, Account sender, Account receiver) {
+//		super();
+//		this.trans_amount = trans_amount;
+//		this.sender = sender;
+//		this.receiver = receiver;
+//	}
+	
+	public java.sql.Date getTransdate() {
+		return transdate;
 	}
-	public Trans(double trans_amount, Account sender, Account receiver) {
-		super();
-		this.trans_amount = trans_amount;
-		this.sender = sender;
-		this.receiver = receiver;
-	}
-	@Override
-	public String toString() {
-		return "Trans [id=" + id + ", trans_amount=" + trans_amount + ", sender=" + sender + ", receiver=" + receiver
-				+ "]";
+	public void setTransdate(java.sql.Date transdate) {
+		this.transdate = transdate;
 	}
 	public int getId() {
 		return id;
@@ -81,6 +102,7 @@ public class Trans {
 		long temp;
 		temp = Double.doubleToLongBits(trans_amount);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
+		result = prime * result + ((transdate == null) ? 0 : transdate.hashCode());
 		return result;
 	}
 	@Override
@@ -106,8 +128,19 @@ public class Trans {
 			return false;
 		if (Double.doubleToLongBits(trans_amount) != Double.doubleToLongBits(other.trans_amount))
 			return false;
+		if (transdate == null) {
+			if (other.transdate != null)
+				return false;
+		} else if (!transdate.equals(other.transdate))
+			return false;
 		return true;
 	}
+	@Override
+	public String toString() {
+		return "Trans [id=" + id + ", trans_amount=" + trans_amount + ", transdate=" + transdate + ", sender=" + sender
+				+ ", receiver=" + receiver + "]";
+	}
+	
 	
 	
 }

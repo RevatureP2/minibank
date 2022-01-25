@@ -2,6 +2,7 @@ package com.revature;
 
 import java.util.List;
 
+import java.sql.Date;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 
@@ -20,6 +21,8 @@ public class Launcher {
 		AccountDAO aDAO = new AccountDAO();
 		TransDAO tDAO = new TransDAO();
 		// TODO Auto-generated method stub
+//		java.sql.Date date=java.sql.Date.valueOf("2022-01-24");
+//		System.out.println(date);
 		try(Session ses = HibernateUtil.getSession()) {
 			System.out.println("Connection Successful");
 			User u1 = new User("username","password","test@gmail.com","First","Last","123 ABC street");
@@ -33,13 +36,13 @@ public class Launcher {
 			aDAO.insertAccount(a3);
 			aDAO.insertAccount(a4);
 			
-			Trans t1 = new Trans(500,a1,a2);
+			Trans t1 = new Trans(500,java.sql.Date.valueOf("2022-01-24"),a1,a2);
 			tDAO.insertTrans(t1);
-			Trans t2 = new Trans(-450,a1,a2);
+			Trans t2 = new Trans(450,java.sql.Date.valueOf("2022-01-25"),a2,a1);
 			tDAO.insertTrans(t2);
-			Trans t3 = new Trans(-100,a1,a2);
+			Trans t3 = new Trans(100,java.sql.Date.valueOf("2022-01-26"),a2,a1);
 			tDAO.insertTrans(t3);
-			Trans t4 = new Trans(200,a1,a2);
+			Trans t4 = new Trans(200,java.sql.Date.valueOf("2022-01-27"),a1,a2);
 			tDAO.insertTrans(t4);
 //			t1.getSender().setBalance(t1.getSender().getBalance()-t1.getTrans_amount());
 //			aDAO.updateaftertrans(t1.getSender());
