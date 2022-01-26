@@ -6,6 +6,7 @@ import java.sql.Date;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 
+import com.revature.controller.AccountController;
 import com.revature.models.Account;
 import com.revature.models.Trans;
 import com.revature.models.User;
@@ -14,15 +15,15 @@ import com.revature.repositories.TransDAO;
 import com.revature.repositories.UserDAO;
 import com.revature.utils.HibernateUtil;
 
+import io.javalin.Javalin;
+
 public class Launcher {
 
 	public static void main(String[] args) {
 		UserDAO uDAO = new UserDAO();
 		AccountDAO aDAO = new AccountDAO();
 		TransDAO tDAO = new TransDAO();
-		// TODO Auto-generated method stub
-//		java.sql.Date date=java.sql.Date.valueOf("2022-01-24");
-//		System.out.println(date);
+		AccountController ac = new AccountController();
 		try(Session ses = HibernateUtil.getSession()) {
 			System.out.println("Connection Successful");
 			//create user
@@ -40,13 +41,13 @@ public class Launcher {
 			//create new user with only username password and email
 			User u3 = new User("username2","password","useremail");
 			uDAO.insertUser(u3);
-			System.out.println(u3);
+			//System.out.println(u3);
 			//update users profile
 			u3.setAddress("my new address");
 			u3.setFirstname("fname");
 			u3.setLastname("lname");
 			uDAO.updateuserprofile(u3);
-			System.out.println(u3);
+			//System.out.println(u3);
 			//add new account on new user
 			Account a5 = new Account("checking",0,u3);
 			aDAO.insertAccount(a5);
@@ -59,36 +60,39 @@ public class Launcher {
 			tDAO.insertTrans(t3);
 			Trans t4 = new Trans(200,java.sql.Date.valueOf("2022-01-27"),a1,a2);
 			tDAO.insertTrans(t4);
-//			t1.getSender().setBalance(t1.getSender().getBalance()-t1.getTrans_amount());
-//			aDAO.updateaftertrans(t1.getSender());
-//			t1.getReceiver().setBalance(t1.getReceiver().getBalance()+t1.getTrans_amount());
-//			aDAO.updateaftertrans(t1.getReceiver());
 			//get all account
-			List<Account> allAccount = aDAO.getAllAccount();
-			for(Account a : allAccount) {
-				System.out.println(a);
-			}
+//			List<Account> allAccount = aDAO.getAllAccount();
+//			for(Account a : allAccount) {
+//				System.out.println(a);
+//			}
 			//get all trans
-			List<Trans> allTrans = tDAO.getAllTrans();
-			for(Trans t : allTrans) {
-				System.out.println(t);
-			}
+//			List<Trans> allTrans = tDAO.getAllTrans();
+//			for(Trans t : allTrans) {
+//				System.out.println(t);
+//			}
 			//get income
-			System.out.println(tDAO.getincomebyaccountid(1));
+			//System.out.println(tDAO.getincomebyaccountid(1));
 			//get expense
-			System.out.println(tDAO.getexpensebyaccountid(1));
+			//System.out.println(tDAO.getexpensebyaccountid(1));
 			User u4 = new User("username3","password","useremail3");
-			System.out.println(u4);
 			uDAO.uniquechecker(u4.getUsername(), u4.getEmail());
 			//if username or email is not unique return false
-			System.out.println(uDAO.uniquechecker(u4.getUsername(), u4.getEmail()));
+			//System.out.println(uDAO.uniquechecker(u4.getUsername(), u4.getEmail()));
 			//login checker
 			uDAO.loginchecker("username", "password");
-			System.out.println(uDAO.loginchecker("username", "password"));
+			//System.out.println(uDAO.loginchecker("username", "password"));
 		} catch (HibernateException e) {
 			System.out.println("Connection Failed!");
 			e.printStackTrace();
 		}
+		
+		Javalin app = Javalin.create(
+				config -> {
+					config.enableCorsForAllOrigins(); // allows the server to process JS requests from anywhere
+				}
+			).start(3001);
+		app.get("/allaccount", ac.getallaccount);
+		
 	}
 
 }

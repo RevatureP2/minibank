@@ -40,7 +40,7 @@ public class TransDAO {
 		Session ses = HibernateUtil.getSession();
 		
 		//remember, HQL references the Java Class, so we look for Director (Java Class) as opposed to directors (SQL Entity)
-		Query q = ses.createQuery("FROM Trans WHERE receiver_id_fk = ?0 AND trans_amount < 0");
+		Query q = ses.createQuery("FROM Trans WHERE receiver_id_fk = ?0");
 		q.setParameter(0, id);
 		List<Trans> incomeList = q.getResultList();
 		HibernateUtil.closeSession();
@@ -53,7 +53,7 @@ public class TransDAO {
 		Session ses = HibernateUtil.getSession();
 		
 		//remember, HQL references the Java Class, so we look for Director (Java Class) as opposed to directors (SQL Entity)
-		Query q = ses.createQuery("FROM Trans WHERE sender_id_fk = ?0 AND trans_amount > 0");
+		Query q = ses.createQuery("FROM Trans WHERE sender_id_fk = ?0");
 		q.setParameter(0, id);
 		List<Trans> incomeList = q.getResultList();
 		HibernateUtil.closeSession();
