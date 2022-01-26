@@ -30,6 +30,13 @@ public class User {
 	public User() {
 		super();
 	}
+	
+	public User(String username, String password, String email) {
+		super();
+		this.username = username;
+		this.password = password;
+		this.email = email;
+	}
 
 	public User(int id, String username, String password, String email, String firstname, String lastname,
 			String address) {
@@ -110,9 +117,12 @@ public class User {
 		this.email = email;
 	}
 
+	
+
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", username=" + username + ", password=" + password + ", email=" + email + "]";
+		return "User [id=" + id + ", username=" + username + ", password=" + password + ", email=" + email
+				+ ", firstname=" + firstname + ", lastname=" + lastname + ", address=" + address + "]";
 	}
 
 	@Override

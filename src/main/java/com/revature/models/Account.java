@@ -20,8 +20,8 @@ public class Account {
 	@Column(name="account_id")
 	private int id;
 	
-	@Column(unique= true,nullable=false)
-	private int accnout_num;
+//	@Column(unique= true,nullable=false)
+//	private int accnout_num;
 	private String account_type;
 	private double balance;
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
@@ -31,17 +31,17 @@ public class Account {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Account(int id, int accnout_num, String account_type, double balance, User user) {
+	public Account(int id, String account_type, double balance, User user) {
 		super();
 		this.id = id;
-		this.accnout_num = accnout_num;
+		//this.accnout_num = accnout_num;
 		this.account_type = account_type;
 		this.balance = balance;
 		this.user = user;
 	}
-	public Account(int accnout_num, String account_type, double balance, User user) {
+	public Account(String account_type, double balance, User user) {
 		super();
-		this.accnout_num = accnout_num;
+		//this.accnout_num = accnout_num;
 		this.account_type = account_type;
 		this.balance = balance;
 		this.user = user;
@@ -52,12 +52,12 @@ public class Account {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public int getAccnout_num() {
-		return accnout_num;
-	}
-	public void setAccnout_num(int accnout_num) {
-		this.accnout_num = accnout_num;
-	}
+//	public int getAccnout_num() {
+//		return accnout_num;
+//	}
+//	public void setAccnout_num(int accnout_num) {
+//		this.accnout_num = accnout_num;
+//	}
 	public String getAccount_type() {
 		return account_type;
 	}
@@ -78,14 +78,14 @@ public class Account {
 	}
 	@Override
 	public String toString() {
-		return "Account [id=" + id + ", accnout_num=" + accnout_num + ", account_type=" + account_type + ", balance="
+		return "Account [id=" + id + ", account_type=" + account_type + ", balance="
 				+ balance + ", user=" + user + "]";
 	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + accnout_num;
+		//result = prime * result + accnout_num;
 		result = prime * result + ((account_type == null) ? 0 : account_type.hashCode());
 		long temp;
 		temp = Double.doubleToLongBits(balance);
@@ -103,8 +103,7 @@ public class Account {
 		if (getClass() != obj.getClass())
 			return false;
 		Account other = (Account) obj;
-		if (accnout_num != other.accnout_num)
-			return false;
+		
 		if (account_type == null) {
 			if (other.account_type != null)
 				return false;
