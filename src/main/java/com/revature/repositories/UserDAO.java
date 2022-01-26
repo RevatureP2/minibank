@@ -37,6 +37,15 @@ public class UserDAO {
 		}
 		HibernateUtil.closeSession();
 		return false;
+	}
+	public User loginchecker(String username, String password) {
+		Session ses = HibernateUtil.getSession();
+		Query q = ses.createQuery("FROM User WHERE username = :u AND password = :e");
+		q.setParameter("u", username);
+		q.setParameter("e", password);
+		User user = (User) q.getSingleResult();
+		HibernateUtil.closeSession();
+		return user;
 		
 		
 	}

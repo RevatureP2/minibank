@@ -82,6 +82,9 @@ public class Launcher {
 			uDAO.uniquechecker(u4.getUsername(), u4.getEmail());
 			//if username or email is not unique return false
 			System.out.println(uDAO.uniquechecker(u4.getUsername(), u4.getEmail()));
+			//login checker
+			uDAO.loginchecker("username", "password");
+			System.out.println(uDAO.loginchecker("username", "password"));
 		} catch (HibernateException e) {
 			System.out.println("Connection Failed!");
 			e.printStackTrace();
