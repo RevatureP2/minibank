@@ -50,8 +50,6 @@ public class UserDAO {
 		User user = (User) q.getSingleResult();
 		HibernateUtil.closeSession();
 		return user;
-		
-		
 	}
 	
 public void insertNewUser(User newUser) throws SQLException {

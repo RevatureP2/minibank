@@ -7,6 +7,7 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 
 import com.revature.controller.AccountController;
+import com.revature.controller.TransController;
 import com.revature.controller.UserController;
 import com.revature.models.Account;
 import com.revature.models.Trans;
@@ -26,6 +27,7 @@ public class Launcher {
 		TransDAO tDAO = new TransDAO();
 		AccountController ac = new AccountController();
 		UserController uc = new UserController();
+		TransController tc = new TransController();
 		try(Session ses = HibernateUtil.getSession()) {
 			System.out.println("Connection Successful");
 			//create user
@@ -93,8 +95,10 @@ public class Launcher {
 					config.enableCorsForAllOrigins(); // allows the server to process JS requests from anywhere
 				}
 			).start(3001);
-		app.get("/allaccount", ac.getallaccount);
 		
+		app.get("/allaccount", ac.getallaccount);
+		app.get("/income/{account_id}", tc.getaccountincome);
+		app.get("/expense/{account_id}", tc.getaccountexpense);
 		app.post("/register", uc.insertNewUser);
 		
 	}
