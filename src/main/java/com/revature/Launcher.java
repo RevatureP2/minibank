@@ -7,6 +7,7 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 
 import com.revature.controller.AccountController;
+import com.revature.controller.UserController;
 import com.revature.models.Account;
 import com.revature.models.Trans;
 import com.revature.models.User;
@@ -24,6 +25,7 @@ public class Launcher {
 		AccountDAO aDAO = new AccountDAO();
 		TransDAO tDAO = new TransDAO();
 		AccountController ac = new AccountController();
+		UserController uc = new UserController();
 		try(Session ses = HibernateUtil.getSession()) {
 			System.out.println("Connection Successful");
 			//create user
@@ -41,7 +43,7 @@ public class Launcher {
 			//create new user with only username password and email
 			User u3 = new User("username2","password","useremail");
 			uDAO.insertUser(u3);
-			//System.out.println(u3);
+			System.out.println(u3);
 			//update users profile
 			u3.setAddress("my new address");
 			u3.setFirstname("fname");
@@ -92,6 +94,8 @@ public class Launcher {
 				}
 			).start(3001);
 		app.get("/allaccount", ac.getallaccount);
+		
+		app.post("/register", uc.insertNewUser);
 		
 	}
 

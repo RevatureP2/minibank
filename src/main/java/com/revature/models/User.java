@@ -38,15 +38,15 @@ public class User {
 		this.email = email;
 	}
 
-	public User(int id, String username, String password, String email, String firstname, String lastname,
+	public User(int id, String username, String password, String firstname, String lastname, String email,
 			String address) {
 		super();
 		this.id = id;
 		this.username = username;
 		this.password = password;
-		this.email = email;
 		this.firstname = firstname;
 		this.lastname = lastname;
+		this.email = email;
 		this.address = address;
 	}
 

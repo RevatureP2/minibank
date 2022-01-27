@@ -1,6 +1,9 @@
 package com.revature.repositories;
 
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.List;
 
 import javax.persistence.Query;
@@ -10,6 +13,7 @@ import org.hibernate.Transaction;
 
 import com.revature.models.Trans;
 import com.revature.models.User;
+//import com.revature.util.ConnectionFactory;
 import com.revature.utils.HibernateUtil;
 public class UserDAO {
 	public void insertUser(User user) {
@@ -49,4 +53,16 @@ public class UserDAO {
 		
 		
 	}
-}
+	
+public void insertNewUser(User newUser) throws SQLException {
+	
+	Session ses = HibernateUtil.getSession();
+	ses.save(newUser);
+	HibernateUtil.closeSession();
+			
+			
+		}
+	}
+	
+	
+
