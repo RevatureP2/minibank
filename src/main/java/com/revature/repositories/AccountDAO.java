@@ -7,7 +7,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import com.revature.models.Account;
-
+import com.revature.models.Trans;
 import com.revature.utils.HibernateUtil;
 public class AccountDAO {
 	public List<Account> getAllAccount(){
@@ -35,5 +35,18 @@ public class AccountDAO {
 //		tran.commit();
 //		HibernateUtil.closeSession();
 //	} 
-
+	public List<Account> getAllAccountbyuserid(int id){
+		
+		Session ses = HibernateUtil.getSession();
+		
+		//remember, HQL references the Java Class, so we look for Director (Java Class) as opposed to directors (SQL Entity)
+		
+		Query q = ses.createQuery("FROM Account WHERE user_id_fk = ?0");
+		q.setParameter(0, id);
+		List<Account> accountList = q.getResultList();
+		HibernateUtil.closeSession();
+		
+		return accountList;
+		
+	}
 }

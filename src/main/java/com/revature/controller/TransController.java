@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.google.gson.Gson;
 import com.revature.models.Trans;
+import com.revature.models.User;
 import com.revature.repositories.TransDAO;
 
 import io.javalin.http.Handler;
@@ -36,6 +37,23 @@ public class TransController {
 			
 			ctx.result(JSONincome);
 			ctx.status(200);
+		}else {
+			ctx.result("failed");
+			ctx.status(404);
+		}
+		
+	};
+	public Handler inserttrans = (ctx) -> {
+		if(ctx.req.getSession() != null) {
+			String body = ctx.body();
+			
+			Gson gson = new Gson();
+			
+			Trans tran = gson.fromJson(body, Trans.class);
+			tDAO.insertTrans(tran);
+			
+			ctx.result("Trans successfully registered");
+			ctx.status(201);
 		}else {
 			ctx.result("failed");
 			ctx.status(404);

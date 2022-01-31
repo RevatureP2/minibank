@@ -22,11 +22,13 @@ public class Trans {
 	private int id;
 	private double trans_amount;
 	private java.sql.Date transdate;
-	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
 	@JoinColumn(name = "sender_id_fk",referencedColumnName="account_id")
+
 	public Account sender;
-	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
 	@JoinColumn(name = "receiver_id_fk",referencedColumnName="account_id")
+
 	public Account receiver;
 	
 	public Trans(double trans_amount, Date transdate, Account sender, Account receiver) {
@@ -36,6 +38,7 @@ public class Trans {
 		this.sender = sender;
 		this.receiver = receiver;
 	}
+	
 	public Trans(int id, double trans_amount, Date transdate, Account sender, Account receiver) {
 		super();
 		this.id = id;
@@ -44,6 +47,12 @@ public class Trans {
 		this.sender = sender;
 		this.receiver = receiver;
 	}
+	
+	public Trans(Account sender) {
+		super();
+		this.sender = sender;
+	}
+	
 	public Trans() {
 		super();
 		// TODO Auto-generated constructor stub

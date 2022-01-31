@@ -46,6 +46,8 @@ public class Account {
 		this.balance = balance;
 		this.user = user;
 	}
+	
+
 	public int getId() {
 		return id;
 	}

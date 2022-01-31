@@ -1,8 +1,10 @@
 package com.revature;
 
+import java.util.Calendar;
 import java.util.List;
 
-import java.sql.Date;
+
+
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 
@@ -56,7 +58,7 @@ public class Launcher {
 			Account a5 = new Account("checking",0,u3);
 			aDAO.insertAccount(a5);
 			//trans between accounts
-			Trans t1 = new Trans(500,java.sql.Date.valueOf("2022-01-24"),a1,a2);
+			Trans t1 = new Trans(500,java.sql.Date.valueOf("2022-07-24"),a1,a2);
 			tDAO.insertTrans(t1);
 			Trans t2 = new Trans(450,java.sql.Date.valueOf("2022-01-25"),a2,a1);
 			tDAO.insertTrans(t2);
@@ -64,6 +66,8 @@ public class Launcher {
 			tDAO.insertTrans(t3);
 			Trans t4 = new Trans(200,java.sql.Date.valueOf("2022-01-27"),a1,a2);
 			tDAO.insertTrans(t4);
+			Trans t5 = new Trans(200,java.sql.Date.valueOf("2022-01-31"),a3,a4);
+			tDAO.insertTrans(t5);
 			//get all account
 //			List<Account> allAccount = aDAO.getAllAccount();
 //			for(Account a : allAccount) {
@@ -85,6 +89,13 @@ public class Launcher {
 			//login checker
 			uDAO.loginchecker("username", "password");
 			//System.out.println(uDAO.loginchecker("username", "password"));
+			
+			System.out.println("Month of the year is  : "+t1.getTransdate().getMonth());
+			
+			Calendar cal = Calendar.getInstance();
+			cal.setTime(t1.getTransdate());
+			int month = cal.get(Calendar.MONTH);
+			System.out.println("Month of the year is  : "+month);
 		} catch (HibernateException e) {
 			System.out.println("Connection Failed!");
 			e.printStackTrace();
@@ -99,7 +110,10 @@ public class Launcher {
 		app.get("/allaccount", ac.getallaccount);
 		app.get("/income/{account_id}", tc.getaccountincome);
 		app.get("/expense/{account_id}", tc.getaccountexpense);
-		app.post("/register", uc.insertNewUser);
+		app.post("/registeruser", uc.insertNewUser);
+		app.get("/allaccount/{user_id}", ac.getallaccountbyuserid);
+		app.post("/registeraccount", ac.insertNewAccount);
+		app.post("/trans", tc.inserttrans);
 		
 	}
 

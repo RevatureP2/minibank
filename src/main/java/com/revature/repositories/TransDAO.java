@@ -14,14 +14,20 @@ import com.revature.utils.HibernateUtil;
 public class TransDAO {
 	public void insertTrans(Trans trans) {
 		Session ses = HibernateUtil.getSession();
-		ses.save(trans);
 		Transaction tran = ses.beginTransaction();
+		ses.save(trans);
+		
 		trans.getSender().setBalance(trans.getSender().getBalance()-trans.getTrans_amount());
 		ses.merge(trans.getSender());
 		trans.getReceiver().setBalance(trans.getReceiver().getBalance()+trans.getTrans_amount());
 		ses.merge(trans.getReceiver());
+		
+		
+		ses.flush();
 		tran.commit();
+		
 		HibernateUtil.closeSession();
+		
 	}
 	public List<Trans> getAllTrans(){
 		
