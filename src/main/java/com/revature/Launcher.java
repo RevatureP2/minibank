@@ -114,7 +114,7 @@ public class Launcher {
 		app.get("/allaccount/{user_id}", ac.getallaccountbyuserid);
 		app.post("/registeraccount", ac.insertNewAccount);
 		app.post("/trans", tc.inserttrans);
-		
+		app.get("/budget/{account_id}/{month}", tc.getmonthlybudget);
 	}
 
 }

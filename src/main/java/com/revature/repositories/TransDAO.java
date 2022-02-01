@@ -67,4 +67,19 @@ public class TransDAO {
 		return incomeList;
 		
 	}
+	public List<Trans> getbudgetbymonth(int month,int id){
+		
+		Session ses = HibernateUtil.getSession();
+		
+		//remember, HQL references the Java Class, so we look for Director (Java Class) as opposed to directors (SQL Entity)
+		Query q = ses.createQuery("FROM Trans WHERE EXTRACT (MONTH FROM transdate)=:d AND sender_id_fk=:i OR receiver_id_fk=:r");
+		q.setParameter("d", month);
+		q.setParameter("i", id);
+		q.setParameter("r", id);
+		List<Trans> incomeList = q.getResultList();
+		HibernateUtil.closeSession();
+		
+		return incomeList;
+		
+	}
 }

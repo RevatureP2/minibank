@@ -60,4 +60,22 @@ public class TransController {
 		}
 		
 	};
+	public Handler getmonthlybudget = (ctx) -> {
+		if(ctx.req.getSession() != null) {
+			int id = 0;
+			id = Integer.parseInt(ctx.pathParam("account_id"));
+			int month = 0;
+			month = Integer.parseInt(ctx.pathParam("month"));
+			List<Trans> budget = tDAO.getbudgetbymonth(month,id);
+			Gson gson = new Gson();
+			String JSONbudget = gson.toJson(budget);
+			
+			ctx.result(JSONbudget);
+			ctx.status(200);
+		}else {
+			ctx.result("failed");
+			ctx.status(404);
+		}
+		
+	};
 }
