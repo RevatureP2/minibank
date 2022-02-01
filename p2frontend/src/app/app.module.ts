@@ -9,6 +9,7 @@ import { AccountpageComponent } from './components/accountpage/accountpage.compo
 import { TranspageComponent } from './components/transpage/transpage.component';
 import { OpenAccountPageComponent } from './components/open-account-page/open-account-page.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
     AccountpageComponent,
     TranspageComponent,
     OpenAccountPageComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
