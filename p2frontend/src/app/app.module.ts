@@ -7,6 +7,8 @@ import { LoginpageComponent } from './components/loginpage/loginpage.component';
 import { RegisterpageComponent } from './components/registerpage/registerpage.component';
 import { AccountpageComponent } from './components/accountpage/accountpage.component';
 import { TranspageComponent } from './components/transpage/transpage.component';
+import { OpenAccountPageComponent } from './components/open-account-page/open-account-page.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { TranspageComponent } from './components/transpage/transpage.component';
     LoginpageComponent,
     RegisterpageComponent,
     AccountpageComponent,
-    TranspageComponent
+    TranspageComponent,
+    OpenAccountPageComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,
