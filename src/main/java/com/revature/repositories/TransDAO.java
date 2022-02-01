@@ -23,7 +23,7 @@ public class TransDAO {
 		ses.merge(trans.getReceiver());
 		
 		
-		ses.flush();
+		//ses.flush();
 		tran.commit();
 		
 		HibernateUtil.closeSession();
