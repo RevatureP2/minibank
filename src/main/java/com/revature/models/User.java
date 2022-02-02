@@ -38,6 +38,15 @@ public class User {
 		this.password = password;
 		this.email = email;
 	}
+	
+	public User(String email, String firstname, String lastname, String address) {
+		super();
+		this.email = email;
+		this.firstname = firstname;
+		this.lastname = lastname;
+		this.address = address;
+	}
+
 
 	public User(int id, String username, String password, String firstname, String lastname, String email,
 			String address) {

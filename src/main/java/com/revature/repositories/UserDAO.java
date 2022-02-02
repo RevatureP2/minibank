@@ -11,6 +11,7 @@ import javax.persistence.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import com.revature.models.Account;
 import com.revature.models.Trans;
 import com.revature.models.User;
 //import com.revature.util.ConnectionFactory;
@@ -52,7 +53,7 @@ public class UserDAO {
 		return user;
 	}
 	
-public void insertNewUser(User newUser) throws SQLException {
+	public void insertNewUser(User newUser) throws SQLException {
 	
 	Session ses = HibernateUtil.getSession();
 	ses.save(newUser);
@@ -60,6 +61,23 @@ public void insertNewUser(User newUser) throws SQLException {
 			
 			
 		}
+	public User getUserbyuserid(int id){
+		
+		Session ses = HibernateUtil.getSession();
+		
+		//remember, HQL references the Java Class, so we look for Director (Java Class) as opposed to directors (SQL Entity)
+		
+		Query q = ses.createQuery("FROM User WHERE user_id = ?0");
+		q.setParameter(0, id);
+		User user = (User)q.getSingleResult();
+		//User userlist = q.getResultList();
+		//HibernateUtil.closeSession();
+		
+		return user;
+		
+	}
+	
+	
 	}
 	
 	
