@@ -48,6 +48,9 @@ public class UserDAO {
 		Query q = ses.createQuery("FROM User WHERE username = :u AND password = :e");
 		q.setParameter("u", username);
 		q.setParameter("e", password);
+		if(q.getResultList().isEmpty()) {
+			return null;
+		}
 		User user = (User) q.getSingleResult();
 		HibernateUtil.closeSession();
 		return user;
