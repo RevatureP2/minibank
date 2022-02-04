@@ -2,6 +2,9 @@ import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AccountpageComponent } from './components/accountpage/accountpage.component';
 import { LoginpageComponent } from './components/loginpage/loginpage.component';
+import { OpenAccountPageComponent } from './components/open-account-page/open-account-page.component';
+import { RegisterpageComponent } from './components/registerpage/registerpage.component';
+import { TranspageComponent } from './components/transpage/transpage.component';
 
 const routes: Routes = [
   {
@@ -11,6 +14,18 @@ const routes: Routes = [
   {
     path:"account",
     component:AccountpageComponent
+  },
+  {
+    path:"transfer",
+    component:TranspageComponent
+  },
+  {
+    path:"register",
+    component:RegisterpageComponent
+  },
+  {
+    path:"open-new-account",
+    component:OpenAccountPageComponent
   }
 ];
 
