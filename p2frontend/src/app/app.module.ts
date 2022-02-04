@@ -10,6 +10,9 @@ import { TranspageComponent } from './components/transpage/transpage.component';
 import { OpenAccountPageComponent } from './components/open-account-page/open-account-page.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -21,10 +24,14 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     OpenAccountPageComponent,
     UserProfileComponent,
     NavbarComponent
+
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

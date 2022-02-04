@@ -21,12 +21,21 @@ public class UserController {
 			
 			Gson gson = new Gson();
 			
+			
+			gson.fromJson(body, User.class).getUsername();
+			gson.fromJson(body, User.class).getEmail();
 			User user = gson.fromJson(body, User.class);
+			if(udao.uniquechecker(user.getUsername(), user.getEmail())) {
+				udao.insertNewUser(user);
+				ctx.result("User successfully registered");
+				ctx.status(201);
+			}
+			else {
+				ctx.result("username or email is not unique");
+				ctx.status(405);
+			}
 			
-			udao.insertNewUser(user);
 			
-			ctx.result("User successfully registered");
-			ctx.status(201);
 			
 		}else {
 			ctx.result("An error occured while attempting to register this user");
@@ -57,11 +66,10 @@ public class UserController {
 		LoginDTO LDTO = gson.fromJson(body,LoginDTO.class);
 		User loginuser = udao.loginchecker(LDTO.getUsername(),LDTO.getPassword());
 		if(loginuser != null) {
-		//if((loginuser.getUsername() !=null) &(loginuser.getPassword() != null) ) {
 			ctx.req.getSession();
 			ctx.res.setHeader("Set-Cookie", "key=value; HttpOnly; SameSite=None; Secure");
 			ctx.status(202);
-			ctx.result("login success");
+			ctx.result(gson.toJson(loginuser));
 		}
 		else {
 			ctx.status(401);
