@@ -27,7 +27,7 @@ public class UserController {
 			User user = gson.fromJson(body, User.class);
 			if(udao.uniquechecker(user.getUsername(), user.getEmail())) {
 				udao.insertNewUser(user);
-				ctx.result("User successfully registered");
+				ctx.result(gson.toJson(user));
 				ctx.status(201);
 			}
 			else {
