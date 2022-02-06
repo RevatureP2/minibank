@@ -55,7 +55,7 @@ public class AccountController {
 			
 			aDAO.insertAccount(account);
 			
-			ctx.result("Account successfully registered");
+			ctx.result(gson.toJson(account));
 			ctx.status(201);
 			
 		}else {

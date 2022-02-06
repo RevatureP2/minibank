@@ -1,3 +1,8 @@
+<style>
+    .topnav-right {
+  float: right;
+}
+</style>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid d-flex justify-content-between">
             <ul class="navbar-nav">
@@ -7,18 +12,20 @@
                     <a class = "navbar-brand" routerLink=""> &emsp; Minibank</a>      
                 </li>
                 <li class="navbar-item">
-                    <a class="nav-link" routerLink="user-profile" style="color: rgb(255, 255, 255)">Welcome {{user.firstname}} {{user.lastname}}</a> 
+                    <a class="nav-link" routerLink="/user-profile" style="color: rgb(255, 255, 255)">Welcome {{user.firstname}} {{user.lastname}}</a> 
                 </li>
                 <li class="navbar-item">
                     <a class="nav-link" routerLink="/account">My Accounts</a>
                 </li>
                 <li class="navbar-item">
-                    <a class="nav-link" routerLink="/transfer">Make Transfer</a>
+                    <a class="nav-link" routerLink="/transfer">Transfer</a>
                 </li>
-                <li class="navbar-item">
+                <li class="navbar-item ">
                     <a class="nav-link" routerLink="/open-new-account">Open New Account</a>
                 </li>
-
+                <li class="navbar-item ">
+                    <a class="nav-link" routerLink="">Log out</a>
+                </li>
             </ul>
     </div>
 </nav> 

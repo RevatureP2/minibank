@@ -5,6 +5,7 @@ import { LoginpageComponent } from './components/loginpage/loginpage.component';
 import { OpenAccountPageComponent } from './components/open-account-page/open-account-page.component';
 import { RegisterpageComponent } from './components/registerpage/registerpage.component';
 import { TranspageComponent } from './components/transpage/transpage.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path:"open-new-account",
     component:OpenAccountPageComponent
+  },
+  {
+    path:"user-profile",
+    component:UserProfileComponent
   }
 ];
 
