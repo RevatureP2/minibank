@@ -1,2 +1,16 @@
 <app-navbar></app-navbar>
-<p>accountpage works!</p>
+<table mdbTable hover="true">
+    <thead>
+      <tr>
+        <th scope="col">{{account.user.firstname}} </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr mdbTableCol *ngFor="let el of account">
+        <th scope="row">{{el.id}}</th>
+        <td>{{el.account_type}}</td>
+        <td>{{el.balance}}</td>
+
+      </tr>
+    </tbody>
+  </table>

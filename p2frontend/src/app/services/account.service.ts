@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Account } from '../models/account.model';
@@ -17,6 +17,12 @@ export class AccountService {
     //this.user2=p;
     //console.log(this.user2)
     return p;
+    
+    //return this.http.get("http://localhost:3001/allaccount", {observe:"response"}) as Observable<HttpResponse<User>>;
+  }
+  getaccountbyid(id:number):Observable<Account>{
+    //console.log(account);
+    return this.http.get("http://localhost:3001/allaccount/"+id+"/",{observe:"response"}) as Observable<HttpResponse<Account>>;
     
     //return this.http.get("http://localhost:3001/allaccount", {observe:"response"}) as Observable<HttpResponse<User>>;
   }
