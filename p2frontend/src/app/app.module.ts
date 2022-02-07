@@ -13,6 +13,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { AccountdetailComponent } from './components/accountdetail/accountdetail.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { HttpClientModule } from '@angular/common/http';
     TranspageComponent,
     OpenAccountPageComponent,
     UserProfileComponent,
-    NavbarComponent
+    NavbarComponent,
+    AccountdetailComponent
 
   ],
   imports: [

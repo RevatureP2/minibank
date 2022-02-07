@@ -1,15 +1,19 @@
 <app-navbar></app-navbar>
-<table mdbTable hover="true">
-    <thead>
+<div>Accounts for {{this.user.firstname}} </div>
+<table class="table table-bordered" mdbTable hover="true">
+    
+    <thead class="thead-light">
       <tr>
-        <th scope="col">{{account.user.firstname}} </th>
+        <th scope="col">Account Id</th>
+        <th>Account Type</th>
+        <th>Balance</th>
       </tr>
     </thead>
     <tbody>
-      <tr mdbTableCol *ngFor="let el of account">
-        <th scope="row">{{el.id}}</th>
+      <tr mdbTableCol *ngFor="let el of account" >
+        <th>{{el.id}}</th>
         <td>{{el.account_type}}</td>
-        <td>{{el.balance}}</td>
+        <td>$ {{el.balance}}</td>
 
       </tr>
     </tbody>
