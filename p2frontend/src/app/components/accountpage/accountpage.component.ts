@@ -21,6 +21,7 @@ export class AccountpageComponent implements OnInit {
         console.log(data)
         console.log(data.status)
         this.account=data.body;
+        this.as.account=data.body;
         console.log(this.account)
 
         

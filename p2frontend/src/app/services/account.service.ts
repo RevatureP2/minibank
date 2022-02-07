@@ -8,7 +8,7 @@ import { User } from '../models/user.model';
   providedIn: 'root'
 })
 export class AccountService {
-
+  account:any=null;
   constructor(private http:HttpClient) { }
   sendaccount(accounttype:String,balance:number,user:User):Observable<Account>{
     let account={account_type:accounttype , balance:balance, user:user}
