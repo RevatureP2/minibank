@@ -8,11 +8,11 @@
         </tr>
 		<tr>	
             <td>First Name</td>
-            <td>{{user.firstname}}</td>
+            <td><input  class="form-control form-control-sm" [(ngModel)]="user.firstname" /></td>
         </tr>
         <tr>
 			<td>Last Name</td>
-            <td>{{user.lastname}}</td>
+            <td><input  class="form-control form-control-sm" [(ngModel)]="user.lastname" /></td>
         </tr>
         <tr>
 			<td>Email</td>
@@ -20,11 +20,12 @@
         </tr>
         <tr>
 			<td>Phone</td>
-            <td>{{user.phonenumber}}</td>
+            <td><input  class="form-control form-control-sm" [(ngModel)]="user.phonenumber" /></td> 
         </tr>
         <tr>
 			<td>Address</td>
-            <td>{{user.address}}</td>
+            <td><input  class="form-control form-control-sm" [(ngModel)]="user.address" /></td>
 		</tr>
+        <button class="btn btn-outline-dark btn-lg px-5" type="submit"(click) = "update()">Save Changes</button>
 </table>   
 

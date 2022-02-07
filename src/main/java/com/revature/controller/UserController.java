@@ -94,7 +94,7 @@ public class UserController {
 			System.out.println(user);
 			udao.updateuserprofile(user);
 			
-			ctx.result("User profile updated");
+			ctx.result(gson.toJson(user));
 			ctx.status(201);
 			
 		}else {
