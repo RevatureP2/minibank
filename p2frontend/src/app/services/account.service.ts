@@ -20,7 +20,7 @@ export class AccountService {
     
     //return this.http.get("http://localhost:3001/allaccount", {observe:"response"}) as Observable<HttpResponse<User>>;
   }
-  getaccountbyid(id:number):Observable<Account>{
+  getaccountbyid(id:number):Observable<HttpResponse<Account>>{
     //console.log(account);
     return this.http.get("http://localhost:3001/allaccount/"+id+"/",{observe:"response"}) as Observable<HttpResponse<Account>>;
     

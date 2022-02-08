@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Account } from '../models/account.model';
@@ -9,7 +9,7 @@ import { AccountService } from './account.service';
   providedIn: 'root'
 })
 export class TransService {
-
+  trans:any=null;
   constructor(private http:HttpClient,private as:AccountService) { }
   sendtrans(amount:number,currentdate:String,sender:Account,receiver:Account):Observable<Trans>{
 
@@ -21,5 +21,20 @@ export class TransService {
     return p;
     
     //return this.http.get("http://localhost:3001/allaccount", {observe:"response"}) as Observable<HttpResponse<User>>;
+  }
+  getincome(id:number):Observable<HttpResponse<Trans>>{
+      this.trans=this.http.get("http://localhost:3001/income/"+id) as Observable<HttpResponse<Trans>>;
+      //this.trans=this.trans+this.http.get("http://localhost:3001/expense/"+id) as Observable<HttpResponse<Trans>>
+      return this.trans;
+  }
+  getexpense(id:number):Observable<HttpResponse<Trans>>{
+    this.trans=this.http.get("http://localhost:3001/expense/"+id) as Observable<HttpResponse<Trans>>;
+    //this.trans=this.trans+this.http.get("http://localhost:3001/expense/"+id) as Observable<HttpResponse<Trans>>
+    return this.trans;
+}
+  getmonthbudget(id:number,id2:number):Observable<HttpResponse<Trans>>{
+  this.trans=this.http.get("http://localhost:3001/budget/"+id+"/"+id2) as Observable<HttpResponse<Trans>>;
+  //this.trans=this.trans+this.http.get("http://localhost:3001/expense/"+id) as Observable<HttpResponse<Trans>>
+  return this.trans;
   }
 }

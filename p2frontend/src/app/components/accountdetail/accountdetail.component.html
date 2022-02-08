@@ -1,2 +1,89 @@
 <app-navbar></app-navbar>
-<p>accountdetail works!</p>
+
+<div class="container" id="c1">
+    
+      <p>
+        <span>Accounts - {{this.account.id}}</span>
+        <br>
+        <span class="col">{{this.account.account_type}}</span>
+        <br>
+        <span class="col">$ {{this.account.balance}}</span>
+        <br>
+        
+      </p>
+
+
+  </div>
+  <div class="container" id="c2">
+
+       <span>Total Income: $ {{this.totalincome}}</span> 
+       <br>
+        <span> Total Expense: $ {{this.totalexpense}}</span>
+        <br>
+        <span>Budget Calculator: {{this.totalbudget}}</span>
+        
+  </div>
+  <div class="container" id="pdfTable" #pdfTable>
+    <span>Month:</span>
+    <select  [(ngModel)]="month" required >
+    <option [value]="1" >Jan</option>
+    <option [value]="2">Feb</option>
+    <option [value]="3" >March</option>
+    <option [value]="4" >Apl</option>
+    <option [value]="5" >May</option>
+    <option [value]="6" >Jun</option>
+    <option [value]="7" >Jul</option>
+    <option [value]="8" >Aug</option>
+    <option [value]="9" >Sept</option>
+    <option [value]="10" >Oct</option>
+    <option [value]="11" >Nov</option>
+    <option [value]="12" >Dec</option>
+</select>
+<button class="btn btn-primary" (click)="monthbudget()">Calculate!</button>
+<br>
+<span>Total Income: $ {{this.monthlyincome}}</span> 
+<br>
+ <span> Total Expense: $ {{this.monthlyexpense}}</span>
+ <br>
+ <span>Budget Calculator: {{this.monthlybudget}}</span>
+ 
+  </div>
+  <div class="wrap">
+  <table mdbTable class="table" id="table1" style="margin-right:10%;">
+    <thead class="black white-text">
+        <div class="h1">Income:</div>
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">Amount</th>
+        <th scope="col">Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr mdbTableCol *ngFor="let el of income">
+        <td scope="row">{{el.id}}</td>
+        <td>${{el.trans_amount}}</td>
+        <td>{{el.transdate}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <table mdbTable class="table" id="table2">
+    <thead class="black white-text">
+        <div class="h1">Expense:</div>
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">Amount</th>
+        <th scope="col">Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr mdbTableCol *ngFor="let el of expense">
+        <td scope="row">{{el.id}}</td>
+        <td>-${{el.trans_amount}}</td>
+        <td>{{el.transdate}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<!-- <div> <button  (click)="downloadAsPDF('pdfTable')">Export To PDF</button></div> -->

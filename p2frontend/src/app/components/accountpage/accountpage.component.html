@@ -1,12 +1,12 @@
 <app-navbar></app-navbar>
-<div>Accounts for {{this.user.firstname}} </div>
+<div class="text">Accounts for {{this.user.firstname}} </div>
 <div class="container">
   <ul class = "accounts">
     <li *ngFor="let el of account">
       <button  class="btn btn-block" (click)="onSelect(el.id)" routerLink="/accountdetail">
         <span class="col">{{el.id}}</span>
         <span class="col">{{el.account_type}}</span>
-        <span class="col">{{el.balance}}</span>
+        <span class="col">$ {{el.balance}}</span>
       </button>
     </li>
   </ul>
