@@ -119,6 +119,7 @@ public class Launcher {
 		app.post("/login", uc.loginHandler);
 		app.post("/updateprofile/{user_id}", uc.updateprofile);	
 		app.get("/account/{account_id}", ac.getaccountbyaccountid);
+		app.get("/resetpassword/{email}", uc.resetpassword);
 		
 		
 	}

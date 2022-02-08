@@ -14,6 +14,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AccountdetailComponent } from './components/accountdetail/accountdetail.component';
+import { ResetComponent } from './components/reset/reset.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { AccountdetailComponent } from './components/accountdetail/accountdetail
     UserProfileComponent,
     NavbarComponent,
     AccountdetailComponent,
+    ResetComponent,
   
 
   ],

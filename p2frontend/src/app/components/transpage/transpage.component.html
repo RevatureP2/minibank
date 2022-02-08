@@ -30,13 +30,16 @@
         </select>
         <br>
         <br>
-        <label for="reveicer" style="margin-right: 25px">To: </label>
+        <label for="reveicer" style="margin-right: 25px">To your another account: </label>
         <select  [(ngModel)]="receiver_id" required  >
             <option *ngFor="let el of account"  [value]="el.id" >
                 {{(el.id == sender_id? '': el.id)}}
                 
             </option>
         </select>
+        <br>
+        <label for="reveicer">Or send to others: </label>
+        <input type="text" id="reveicer" [(ngModel)]="receiver_id"/>
         <!-- <input type="text" id="reveicer" [(ngModel)]="receiver_id"/> -->
         <br>
         <br>

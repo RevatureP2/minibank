@@ -81,6 +81,28 @@ public class UserDAO {
 		return user;
 		
 	}
+	public String resetpassword(String email){
+		
+		Session ses = HibernateUtil.getSession();
+		
+		//remember, HQL references the Java Class, so we look for Director (Java Class) as opposed to directors (SQL Entity)
+		
+		Query q = ses.createQuery("FROM User WHERE email = ?0");
+		q.setParameter(0, email);
+		if(q.getResultList().isEmpty()) {
+			HibernateUtil.closeSession();
+			return null;
+		}
+		User user = (User) q.getSingleResult();
+		user.setPassword("password");
+		String newpassword="password";
+		ses.save(user);
+		HibernateUtil.closeSession();
+		return newpassword;
+		//User userlist = q.getResultList();
+		
+		
+	}
 	
 	
 	}

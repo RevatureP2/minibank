@@ -23,4 +23,10 @@ export class LoginService {
     
     //return this.http.get("http://localhost:3001/allaccount", {observe:"response"}) as Observable<HttpResponse<User>>;
   }
+  reset(email:string):Observable<string>{
+    //console.log(account);
+    return this.http.get("http://localhost:3001/resetpassword/"+email) as Observable<string>;
+    
+    //return this.http.get("http://localhost:3001/allaccount", {observe:"response"}) as Observable<HttpResponse<User>>;
+  }
 }

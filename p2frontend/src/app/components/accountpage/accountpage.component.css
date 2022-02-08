@@ -45,4 +45,6 @@
     background-color: black;
     color: white;
   }
-
+.text{
+  position: relative;
+}

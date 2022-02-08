@@ -5,6 +5,7 @@ import { AccountpageComponent } from './components/accountpage/accountpage.compo
 import { LoginpageComponent } from './components/loginpage/loginpage.component';
 import { OpenAccountPageComponent } from './components/open-account-page/open-account-page.component';
 import { RegisterpageComponent } from './components/registerpage/registerpage.component';
+import { ResetComponent } from './components/reset/reset.component';
 import { TranspageComponent } from './components/transpage/transpage.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 
@@ -36,6 +37,10 @@ const routes: Routes = [
   {
     path:"accountdetail",
     component:AccountdetailComponent
+  },
+  {
+    path:"reset",
+    component:ResetComponent
   }
 ];
 

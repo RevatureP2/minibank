@@ -104,4 +104,22 @@ public class UserController {
 		}
 		
 	};
+	public Handler resetpassword = (ctx) -> {
+
+		if(ctx.req.getSession() != null) {
+			String email = null;
+			email=ctx.pathParam("email");
+			//email = Integer.parseInt(ctx.pathParam("email"));
+			String newpassword = udao.resetpassword(email);
+			Gson gson = new Gson();
+			String JSONuser = gson.toJson(newpassword);
+			
+			ctx.result(JSONuser);
+			ctx.status(200);
+		}else {
+			ctx.result("failed");
+			ctx.status(404);
+		}
+		
+	};
 }

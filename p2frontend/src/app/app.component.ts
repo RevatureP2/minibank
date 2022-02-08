@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Minibank';
+  toggleDarkTheme(): void {
+    console.log("toggle")
+    document.body.classList.toggle('dark-theme');
+  }
 }
