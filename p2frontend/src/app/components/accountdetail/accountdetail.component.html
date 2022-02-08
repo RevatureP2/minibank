@@ -23,7 +23,7 @@
         <span>Budget Calculator: {{this.totalbudget}}</span>
         
   </div>
-  <div class="container" id="pdfTable" #pdfTable>
+  <div class="container" id="pdfTable" >
     <span>Month:</span>
     <select  [(ngModel)]="month" required >
     <option [value]="1" >Jan</option>
@@ -46,9 +46,49 @@
  <span> Total Expense: $ {{this.monthlyexpense}}</span>
  <br>
  <span>Budget Calculator: {{this.monthlybudget}}</span>
- 
+ <div> <button  class="btn btn-primary" (click)="downloadAsPDF()">Export To PDF</button></div>
+
+ <div #pdfTable hidden>
+ <table mdbTable class="table" id="table3" style="margin-right:10%;" >
+    <thead class="black white-text">
+        <div class="h1">Income:</div>
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">Amount</th>
+        <th scope="col">Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr mdbTableCol *ngFor="let el of monthlytrans">
+        <td scope="row">{{el.id}}</td>
+        <td>${{el.trans_amount}}</td>
+        <td>{{el.transdate}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <table mdbTable class="table" id="table2">
+    <thead class="black white-text">
+        <div class="h1">Expense:</div>
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">Amount</th>
+        <th scope="col">Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr mdbTableCol *ngFor="let el of monthlytrans">
+        <td scope="row">{{el.id}}</td>
+        <td>-${{el.trans_amount}}</td>
+        <td>{{el.transdate}}</td>
+      </tr>
+    </tbody>
+  </table>
   </div>
-  <div class="wrap">
+
+
+
+</div>
+  <div class="wrap" id="test" >
   <table mdbTable class="table" id="table1" style="margin-right:10%;">
     <thead class="black white-text">
         <div class="h1">Income:</div>
@@ -64,6 +104,7 @@
         <td>${{el.trans_amount}}</td>
         <td>{{el.transdate}}</td>
       </tr>
+      
     </tbody>
   </table>
 
@@ -86,4 +127,3 @@
     </tbody>
   </table>
 </div>
-<!-- <div> <button  (click)="downloadAsPDF('pdfTable')">Export To PDF</button></div> -->

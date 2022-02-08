@@ -88,8 +88,29 @@ export class AccountdetailComponent implements OnInit {
       }
     )
   }
-  
+  name = 'Angular Html To Pdf ';
 
+  @ViewChild('pdfTable')
+  pdfTable!: ElementRef;
+
+
+  public downloadAsPDF() {
+    const doc = new jsPDF();
+    
+    const pdfTable = this.pdfTable.nativeElement;
+
+    doc.html(pdfTable.innerHTML,{
+      
+      callback(doc) {
+        
+        doc.save('one.pdf');
+        
+      },
+      x: 10,
+      y: 10,
+      
+    });
+    
 }
-
+}
 

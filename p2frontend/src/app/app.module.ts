@@ -25,7 +25,8 @@ import { AccountdetailComponent } from './components/accountdetail/accountdetail
     OpenAccountPageComponent,
     UserProfileComponent,
     NavbarComponent,
-    AccountdetailComponent
+    AccountdetailComponent,
+  
 
   ],
   imports: [

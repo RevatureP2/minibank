@@ -43,6 +43,7 @@
     text-align: center;
   }
  #table1{
+ 
     position: absolute;
     top:30%;
     left:0%;
@@ -55,10 +56,15 @@
     left:50%;
     width:50%
   }
-  /* .wrap {
+  #table3{
+    
     position: absolute;
     top:30%;
     left:50%;
+    width:50%
+  }
+  /* .wrap {
+    font-size: 12px;
     
   } */
   
