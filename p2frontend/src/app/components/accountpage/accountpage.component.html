@@ -1,11 +1,15 @@
 <app-navbar></app-navbar>
 <div>Accounts for {{this.user.firstname}} </div>
 <div class="container">
-    <div class="row" *ngFor="let el of account">
-      <div class="col">{{el.id}}</div>
-      <div class="col">{{el.account_type}}</div>
-      <div class="col">{{el.balance}}</div>
-    </div>
+  <ul class = "accounts">
+    <li *ngFor="let el of account">
+      <button  class="btn btn-block" (click)="onSelect(el.id)" routerLink="/accountdetail">
+        <span class="col">{{el.id}}</span>
+        <span class="col">{{el.account_type}}</span>
+        <span class="col">{{el.balance}}</span>
+      </button>
+    </li>
+  </ul>
   </div>
  <!-- <tr mdbTableCol *ngFor="let el of account" >
         <th>{{el.id}}</th>

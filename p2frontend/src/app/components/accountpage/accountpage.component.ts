@@ -11,6 +11,7 @@ import { LoginService } from 'src/app/services/login.service';
 export class AccountpageComponent implements OnInit {
   user:any=null;
   account:any=null;
+  selected:any=null;
   subscription:Subscription=new Subscription();
   constructor(private ls:LoginService,private as:AccountService) { }
 
@@ -34,5 +35,7 @@ export class AccountpageComponent implements OnInit {
     )
     console.log(this.user);
   }
-
+onSelect(id:number){
+  this.as.account=this.account[id-1]
+}
 }
