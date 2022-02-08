@@ -1,2 +1,52 @@
 <app-navbar></app-navbar>
-<p>accountdetail works!</p>
+
+<div class="container">
+    
+      <p>
+        <span>Accounts - {{this.account.id}}</span>
+        <br>
+        <span class="col">{{this.account.account_type}}</span>
+        <br>
+        <span class="col">$ {{this.account.balance}}</span>
+      </p>
+
+
+  </div>
+  <div class="wrap">
+  <table mdbTable class="table" id="table1" style="margin-right:10%;">
+    <thead class="black white-text">
+        <div class="h1">Income:</div>
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">Amount</th>
+        <th scope="col">Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr mdbTableCol *ngFor="let el of income">
+        <td scope="row">{{el.id}}</td>
+        <td>${{el.trans_amount}}</td>
+        <td>{{el.transdate}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <table mdbTable class="table" id="table2">
+    <thead class="black white-text">
+        <div class="h1">Expense:</div>
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">Amount</th>
+        <th scope="col">Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr mdbTableCol *ngFor="let el of expense">
+        <td scope="row">{{el.id}}</td>
+        <td>-${{el.trans_amount}}</td>
+        <td>{{el.transdate}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

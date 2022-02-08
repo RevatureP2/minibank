@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { Account } from 'src/app/models/account.model';
 import { AccountService } from 'src/app/services/account.service';
 import { LoginService } from 'src/app/services/login.service';
 
@@ -36,6 +37,8 @@ export class AccountpageComponent implements OnInit {
     console.log(this.user);
   }
 onSelect(id:number){
-  this.as.account=this.account[id-1]
+  console.log(id)
+  this.as.account=this.account.find((element:any) => element.id===id)
+  console.log(this.as.account)
 }
 }
