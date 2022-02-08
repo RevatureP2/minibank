@@ -32,4 +32,9 @@ export class TransService {
     //this.trans=this.trans+this.http.get("http://localhost:3001/expense/"+id) as Observable<HttpResponse<Trans>>
     return this.trans;
 }
+  getmonthbudget(id:number,id2:number):Observable<HttpResponse<Trans>>{
+  this.trans=this.http.get("http://localhost:3001/budget/"+id+"/"+id2) as Observable<HttpResponse<Trans>>;
+  //this.trans=this.trans+this.http.get("http://localhost:3001/expense/"+id) as Observable<HttpResponse<Trans>>
+  return this.trans;
+  }
 }
