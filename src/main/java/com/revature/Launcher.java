@@ -117,7 +117,9 @@ public class Launcher {
 		app.get("/budget/{account_id}/{month}", tc.getmonthlybudget);
 		app.get("/getuser/{user_id}", uc.getUserbyid);
 		app.post("/login", uc.loginHandler);
-		app.post("/updateprofile/{user_id}", uc.updateprofile);
+		app.post("/updateprofile/{user_id}", uc.updateprofile);	
+		app.get("/account/{account_id}", ac.getaccountbyaccountid);
+		
 		
 	}
 

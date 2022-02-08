@@ -91,7 +91,7 @@ public class UserController {
 			user.setFirstname(gson.fromJson(body, User.class).getFirstname());
 			user.setLastname(gson.fromJson(body, User.class).getLastname());
 			user.setPhonenumber(gson.fromJson(body, User.class).getPhonenumber());
-			System.out.println(user);
+			//System.out.println(user);
 			udao.updateuserprofile(user);
 			
 			ctx.result(gson.toJson(user));

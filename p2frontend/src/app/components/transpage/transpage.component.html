@@ -1,5 +1,44 @@
+
+<style>
+.container {
+    font-family: arial;
+    font-size: 24px;
+    margin: 25px;
+    width: 350px;
+    height: 200px;
+    display: flex;
+  justify-content: center;
+
+  
+  }
+  
+  p {
+    /* Center horizontally*/
+    text-align: center;
+  }
+</style>
 <app-navbar></app-navbar>
-<div>
-    
+<div class="grid-container" style="text-align: center;">
+    <h1>Make Transfer</h1>
+    <div class="nameDiv" >
+        <label for="sender">Form: </label>
+        <!-- <input type="text" id="sender" [(ngModel)]="sender_id"/> -->
+        <select  [(ngModel)]="sender_id" required  >
+            <option *ngFor="let el of account"  [value]="el.id" >
+                {{el.id}}
+            </option>
+        </select>
+        <br>
+        <br>
+        <label for="reveicer">To: </label>
+        <input type="text" id="reveicer" [(ngModel)]="receiver_id"/>
+        <br>
+        <br>
+        <label for="amount" >Amount: </label>
+        <input type="text" id="amount" [(ngModel)]="amountinput"/>
+        <br>
+        <!-- {{currentDate | date:'yyyy-MM-dd'}} -->
+        <button class="button" (click)="getsender(sender_id)">Submit!</button>
+    </div>
 </div>
-<p>transpage works!</p>
+

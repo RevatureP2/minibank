@@ -13,6 +13,7 @@ import com.revature.utils.HibernateUtil;
 
 public class TransDAO {
 	public void insertTrans(Trans trans) {
+	
 		Session ses = HibernateUtil.getSession();
 		Transaction tran = ses.beginTransaction();
 		ses.save(trans);
@@ -22,7 +23,7 @@ public class TransDAO {
 		trans.getReceiver().setBalance(trans.getReceiver().getBalance()+trans.getTrans_amount());
 		ses.merge(trans.getReceiver());
 		
-		
+		System.out.println(trans.getTransdate());
 		//ses.flush();
 		tran.commit();
 		

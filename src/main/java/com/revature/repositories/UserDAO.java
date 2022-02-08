@@ -38,6 +38,7 @@ public class UserDAO {
 		List<User> uniqueList = q.getResultList();
 		boolean ans = uniqueList.isEmpty();
 		if(ans == true) {
+			HibernateUtil.closeSession();
 			return true;
 		}
 		HibernateUtil.closeSession();
@@ -49,6 +50,7 @@ public class UserDAO {
 		q.setParameter("u", username);
 		q.setParameter("e", password);
 		if(q.getResultList().isEmpty()) {
+			HibernateUtil.closeSession();
 			return null;
 		}
 		User user = (User) q.getSingleResult();
@@ -74,7 +76,7 @@ public class UserDAO {
 		q.setParameter(0, id);
 		User user = (User)q.getSingleResult();
 		//User userlist = q.getResultList();
-		//HibernateUtil.closeSession();
+		HibernateUtil.closeSession();
 		
 		return user;
 		

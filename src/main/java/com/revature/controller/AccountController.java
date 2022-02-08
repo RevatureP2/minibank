@@ -42,6 +42,22 @@ public class AccountController {
 		}
 		
 	};
+	public Handler getaccountbyaccountid = (ctx) -> {
+		if(ctx.req.getSession() != null) {
+			int id = 0;
+			id = Integer.parseInt(ctx.pathParam("account_id"));
+			Account accountresult = aDAO.getAccountbyaccountid(id);
+			Gson gson = new Gson();
+			String JSONaccount = gson.toJson(accountresult);
+			
+			ctx.result(JSONaccount);
+			ctx.status(200);
+		}else {
+			ctx.result("failed");
+			ctx.status(404);
+		}
+		
+	};
 	
 	public Handler insertNewAccount = (ctx) -> {
 		

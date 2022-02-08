@@ -49,4 +49,18 @@ public class AccountDAO {
 		return accountList;
 		
 	}
+	public Account getAccountbyaccountid(int id){
+		
+		Session ses = HibernateUtil.getSession();
+		
+		//remember, HQL references the Java Class, so we look for Director (Java Class) as opposed to directors (SQL Entity)
+		
+		Query q = ses.createQuery("FROM Account WHERE account_id = ?0");
+		q.setParameter(0, id);
+		Account accountList = (Account) q.getSingleResult();
+		HibernateUtil.closeSession();
+		
+		return accountList;
+		
+	}
 }

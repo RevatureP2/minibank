@@ -52,7 +52,7 @@ public class TransController {
 			Trans tran = gson.fromJson(body, Trans.class);
 			tDAO.insertTrans(tran);
 			
-			ctx.result("Trans successfully registered");
+			ctx.result(gson.toJson(tran));
 			ctx.status(201);
 		}else {
 			ctx.result("failed");
