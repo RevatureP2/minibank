@@ -33,8 +33,8 @@ public class Launcher {
 		try(Session ses = HibernateUtil.getSession()) {
 			System.out.println("Connection Successful");
 			//create user
-			User u1 = new User("username","password","test@gmail.com","First","Last","123 ABC street");
-			User u2 = new User("testno2","password","testno2@yahoo.com","test","no2","homeless");
+			User u1 = new User("username","password","test@gmail.com","First","Last","123 ABC street","1234567890");
+			User u2 = new User("testno2","password","testno2@yahoo.com","test","no2","homeless","0987654321");
 			//create account linked to user
 			Account a1 = new Account("checking",1000,u1);
 			Account a2 = new Account("saving",10000,u1);
@@ -118,6 +118,7 @@ public class Launcher {
 		app.get("/getuser/{user_id}", uc.getUserbyid);
 		app.post("/login", uc.loginHandler);
 		app.post("/updateprofile/{user_id}", uc.updateprofile);
+		
 	}
 
 }

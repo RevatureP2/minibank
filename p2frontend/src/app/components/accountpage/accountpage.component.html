@@ -1,2 +1,15 @@
 <app-navbar></app-navbar>
-<p>accountpage works!</p>
+<div>Accounts for {{this.user.firstname}} </div>
+<div class="container">
+    <div class="row" *ngFor="let el of account">
+      <div class="col">{{el.id}}</div>
+      <div class="col">{{el.account_type}}</div>
+      <div class="col">{{el.balance}}</div>
+    </div>
+  </div>
+ <!-- <tr mdbTableCol *ngFor="let el of account" >
+        <th>{{el.id}}</th>
+        <td>{{el.account_type}}</td>
+        <td>$ {{el.balance}}</td>
+
+      </tr> -->

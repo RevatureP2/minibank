@@ -1,5 +1,6 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AccountdetailComponent } from './components/accountdetail/accountdetail.component';
 import { AccountpageComponent } from './components/accountpage/accountpage.component';
 import { LoginpageComponent } from './components/loginpage/loginpage.component';
 import { OpenAccountPageComponent } from './components/open-account-page/open-account-page.component';
@@ -31,6 +32,10 @@ const routes: Routes = [
   {
     path:"user-profile",
     component:UserProfileComponent
+  },
+  {
+    path:"accountdetail",
+    component:AccountdetailComponent
   }
 ];
 
