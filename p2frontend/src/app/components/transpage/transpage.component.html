@@ -21,17 +21,23 @@
 <div class="grid-container" style="text-align: center;">
     <h1>Make Transfer</h1>
     <div class="nameDiv" >
-        <label for="sender">Form: </label>
+        <label for="sender">From: </label>
         <!-- <input type="text" id="sender" [(ngModel)]="sender_id"/> -->
         <select  [(ngModel)]="sender_id" required  >
             <option *ngFor="let el of account"  [value]="el.id" >
-                {{el.id}}
+                {{(el.id == receiver_id? '': el.id)}}
             </option>
         </select>
         <br>
         <br>
-        <label for="reveicer">To: </label>
-        <input type="text" id="reveicer" [(ngModel)]="receiver_id"/>
+        <label for="reveicer" style="margin-right: 25px">To: </label>
+        <select  [(ngModel)]="receiver_id" required  >
+            <option *ngFor="let el of account"  [value]="el.id" >
+                {{(el.id == sender_id? '': el.id)}}
+                
+            </option>
+        </select>
+        <!-- <input type="text" id="reveicer" [(ngModel)]="receiver_id"/> -->
         <br>
         <br>
         <label for="amount" >Amount: </label>

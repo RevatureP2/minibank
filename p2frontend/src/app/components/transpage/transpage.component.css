@@ -1,0 +1,11 @@
+label {
+    display: inline-block;
+    margin-top: 3px;
+    margin-right: 5px;
+  }
+  
+  select {
+    width: 200px;
+    margin: 10px;
+    align-content: center;
+  }
