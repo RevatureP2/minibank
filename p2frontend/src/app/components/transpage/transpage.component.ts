@@ -24,6 +24,8 @@ export class TranspageComponent implements OnInit {
   receiver:any=null;
   sender:any=null;
   trans:any=null;
+  htmltoadd: string | undefined;
+  htmltoadd2: string | undefined;
   constructor(private ls:LoginService,private as:AccountService,private ts:TransService,
     @Inject(LOCALE_ID) private locale:string) {
     this.currentDate=formatDate(new Date().toDateString(),'MMM dd, yyyy',this.locale);
@@ -93,9 +95,10 @@ export class TranspageComponent implements OnInit {
         console.log(data)
         this.trans=data;
         console.log(this.receiver)
+        this.htmltoadd='<div class="form-outline form-white mb-4">Transaction successful</div>'
       },
       ()=>{
-        
+        this.htmltoadd2='<div class="form-outline form-white mb-4">Transaction failed</div>'
         console.log("send trans failed")
       
       }
