@@ -16,5 +16,8 @@ export class NavbarComponent implements OnInit {
     this.user=this.ls.user2;
     console.log(this.user)
   }
-
+  toggleDarkTheme(): void {
+    console.log("toggle")
+    document.body.classList.toggle('dark-theme');
+  }
 }
